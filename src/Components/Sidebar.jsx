@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <div className="flex h-screen overflow-hidden bg-[#f5f7fa] m-2 rounded-xl">
       {/* Sidebar */}
-      <div className="text-black overflow-y-auto fixed h-full pt-4 rounded-xl p-2">
+      <div className="text-black bg-red-200 overflow-y-auto fixed h-full pt-4 rounded-xl p-2">
         {/* title start here */}
         <h1 className="font-bold text-2xl mb-4"> 🍊 OrangeFarm</h1>
         {/* title ends here */}
@@ -48,7 +48,7 @@ const Sidebar = () => {
             <input
               type="search"
               id="default-search"
-              className="rounded-full block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="mb-5 rounded-full block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Search"
               required
             />
@@ -94,7 +94,7 @@ const Sidebar = () => {
               key={index}
               className="text-base transition duration-300 transform hover:bg-white hover:text-black hover:rounded-full hover:translate-x-5"
             >
-              <div className="flex items-center">
+              <div className="flex items-center p-3 transition duration-300 transform hover:bg-white hover:text-black hover:rounded-full hover:translate-x-5">
                 {item.icon}
                 <span className={`ml-2 ${item.color || ""}`}>{item.text}</span>
               </div>
