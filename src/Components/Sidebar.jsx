@@ -10,6 +10,13 @@ const Sidebar = () => {
     <div className="flex h-screen overflow-hidden bg-[#f5f7fa] m-2 rounded-xl">
       {/* Sidebar */}
       <div className="  text-black overflow-y-auto fixed h-full pt-4 rounded-xl p-2">
+        {/* title start here */}
+
+        <h1 className="font-bold text-2xl mb-4"> 🍊 OrangeFarm</h1>
+
+        {/* title ends here */}
+
+        {/* Searchbar start here */}
         <form>
           <label
             for="default-search"
@@ -39,11 +46,14 @@ const Sidebar = () => {
               type="search"
               id="default-search"
               className="rounded-full block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Search Mockups, Logos..."
+              placeholder="Search"
               required
             />
           </div>
         </form>
+        {/* Searchbar ends here */}
+
+        {/* list of navigation start here */}
 
         <ul>
           {SidebarData.map((item, index) => (
@@ -61,12 +71,24 @@ const Sidebar = () => {
             </li>
           ))}
         </ul>
+
+        <div className="flex flex-col items-center justify-end h-full">
+          <img
+            src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg"
+            alt=""
+            className="w-10 h-10 rounded-full"
+          />
+        </div>
       </div>
 
-      {/* Content */}
+      {/* list of navigation start here */}
+
+      {/* router here */}
       <div className="flex-grow overflow-y-auto ml-60">
         <Path />
       </div>
+
+      {/* routers ends here */}
     </div>
   );
 };
