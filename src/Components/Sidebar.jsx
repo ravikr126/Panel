@@ -89,10 +89,13 @@ const Sidebar = () => {
 
         {/* image ends here */}
 
-        <div className="flex items-center p-3 transition duration-300 transform hover:bg-white hover:text-black hover:rounded-full hover:translate-x-5">
+        <div className="flex items-center">
           <ul className="flex-row">
             {menuItems.map((item, index) => (
-              <li key={index}>
+              <li
+                key={index}
+                className="text-base transition duration-300 transform hover:bg-white hover:text-black hover:rounded-full hover:translate-x-5"
+              >
                 <div className="flex items-center">
                   {item.icon}
                   <span className={`ml-2 ${item.color || ""}`}>
