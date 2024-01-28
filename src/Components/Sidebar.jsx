@@ -74,45 +74,40 @@ const Sidebar = () => {
           ))}
         </ul>
 
-        {/* Image at the bottom */}
-        <div className="mt-auto mb-4 flex items-center">
+        {/* User information */}
+        <div className="mt-4 mb-4 flex items-center">
           <img
             src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg"
             alt=""
             className="w-10 h-10 rounded-full mr-2"
           />
           <div>
-            <p>Gustavo Xavier</p>
-            <p className="bg-yellow-500">Admin</p>
+            <p className="text-sm font-semibold">Gustavo Xavier</p>
+            <p className="text-xs text-gray-500">Admin</p>
           </div>
         </div>
 
-        {/* image ends here */}
-
-        <div className="flex items-center">
-          <ul className="flex-row">
-            {menuItems.map((item, index) => (
-              <li
-                key={index}
-                className="text-base transition duration-300 transform hover:bg-white hover:text-black hover:rounded-full hover:translate-x-5"
-              >
-                <div className="flex items-center">
-                  {item.icon}
-                  <span className={`ml-2 ${item.color || ""}`}>
-                    {item.text}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Settings/Logout */}
+        <ul className="flex-row">
+          {menuItems.map((item, index) => (
+            <li
+              key={index}
+              className="text-base transition duration-300 transform hover:bg-white hover:text-black hover:rounded-full hover:translate-x-5"
+            >
+              <div className="flex items-center">
+                {item.icon}
+                <span className={`ml-2 ${item.color || ""}`}>{item.text}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* router here */}
       <div className="flex-grow overflow-y-auto ml-60">
         <Path />
       </div>
-      {/* routers ends here */}
+      {/* routers end here */}
     </div>
   );
 };
