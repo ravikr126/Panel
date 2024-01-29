@@ -69,13 +69,12 @@ const Dashboard = () => {
               />
             </div>
             <a
-  href="#"
-  className="text-[#A94438] mt-8 flex items-center justify-center text-base"
->
-  All goals
-  <FaArrowRight className="ml-2" />
-</a>
-
+              href="#"
+              className="text-[#A94438] mt-8 flex items-center justify-center text-base"
+            >
+              All goals
+              <FaArrowRight className="ml-2" />
+            </a>
           </div>
 
           {/* 3rd box end */}
