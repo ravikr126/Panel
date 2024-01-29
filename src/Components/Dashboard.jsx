@@ -1,10 +1,77 @@
-import React from "react";
-import Home_Table from "./Home_Table";
+import { React, useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
 import SemiCircleProgressBar from "react-progressbar-semicircle";
+import { FiMessageCircle } from "react-icons/fi";
+import { CiStar } from "react-icons/ci";
+import { MdEdit } from "react-icons/md";
 
+const ListItem = ({ item }) => {
+  const { image, title, details } = item;
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  return (
+    <li
+      className="flex items-center rounded-2xl"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img className="w-10 h-10 rounded-full mr-2" src={image} alt={title} />
+      <div>
+        <p className="font-bold">{title}</p>
+        <p>{details}</p>
+      </div>
+      {isHovered && (
+        <div className="ml-auto flex space-x-2 items-center">
+          <FiMessageCircle className="text-blue-500 cursor-pointer" />
+          <CiStar className="text-yellow-500 cursor-pointer" />
+          <MdEdit className="text-green-500 cursor-pointer" />
+        </div>
+      )}
+    </li>
+  );
+};
+
+const List = ({ data }) => {
+  return (
+    <ul className="flex flex-col ">
+      {data.map((item, index) => (
+        <ListItem key={index} item={item} />
+      ))}
+    </ul>
+  );
+};
 const Dashboard = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const data = [
+    {
+      title: "Item 1",
+      image: "https://placekitten.com/300/200",
+      details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    },
+    {
+      title: "Item 2",
+      image: "https://placekitten.com/301/200",
+      details:
+        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    // Add more items as needed
+  ];
+
   return (
     <>
       <div className="m-10 ">
@@ -83,11 +150,51 @@ const Dashboard = () => {
 
         {/* top grid section ends here */}
 
+        {/* ===================================================================================================== */}
+
         {/* middle grids start here */}
         <div className="grid grid-cols-2 gap-4 mt-5 ">
+          {/* customer grid start here */}
           <div className="h-[250px] py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
-            Column 1
+            <div className="flex items-center justify-between ">
+              <p>Customers</p>
+              <div className="relative inline-block">
+                Sort by
+                <button
+                  className="font-bold py-2 px-4 rounded inline-flex items-center"
+                  onClick={toggleDropdown}
+                >
+                  Toggle Dropdown{" "}
+                  <svg
+                    className="h-7 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                {isOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow-md">
+                    <ul>
+                      <li className="py-2 px-4 hover:bg-gray-100">Option 1</li>
+                      <li className="py-2 px-4 hover:bg-gray-100">Option 2</li>
+                      <li className="py-2 px-4 hover:bg-gray-100">Option 3</li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <List data={data} />
           </div>
+          {/* customer grid ends here */}
           <div className="h-[250px] py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
             Column 2
           </div>
