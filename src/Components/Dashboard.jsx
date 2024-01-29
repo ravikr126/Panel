@@ -8,6 +8,7 @@ const Dashboard = () => {
   return (
     <>
       <div className="m-10 ">
+        {/* top grid section start here */}
         <div class="grid grid-cols-2 md:grid-cols-3 gap-10 pt-2 justify-between">
           {/* 1st box */}
           <div class="h-[250px] py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
@@ -80,21 +81,19 @@ const Dashboard = () => {
           {/* 3rd box end */}
         </div>
 
-        {/* upper box ends */}
+        {/* top grid section ends here */}
 
-        <div className="border  my-5 rounded bg-white">
-          <h1 className="m-4 text-3xl font-bold ">Recent Orders</h1>
-
-          {/* table start */}
-          {/* <Table /> */}
-          <Home_Table />
-          {/* table end */}
+        {/* middle grids start here */}
+        <div className="grid grid-cols-2 gap-4 mt-5 ">
+          <div className="h-[250px] py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
+            Column 1
+          </div>
+          <div className="h-[250px] py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
+            Column 2
+          </div>
         </div>
-
-        {/* upper boxex ends */}
+        {/* middle grids ends here */}
       </div>
-      {/* 2nd div row wali */}
-
       {/* home section end */}
     </>
   );
