@@ -1,11 +1,76 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa";
+import { MdOutlineAddBox } from "react-icons/md";
+
+const DataList = ({ data }) => {
+  return (
+    <>
+      <div>
+        {data.map((item, index) => (
+          <div
+            key={index}
+            className="bg-orange-200 inline-flex items-center text-center text-amber-950 m-2 p-2 rounded-xl"
+          >
+            <MdOutlineAddBox className="mr-2 text-xl text-orange-500" />
+            {item.title}
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
+
+const BarGraph = ({ data }) => {
+  return (
+    <div className="flex flex-col items-center">
+      {data.map((item, index) => (
+        <div key={index} className="w-full mb-4">
+          <div className="flex items-center">
+            <div className="w-3/4 h-8 relative">
+              <div
+                className="h-full rounded-xl px-2 text-xs flex items-center"
+                style={{
+                  width: `${item.value}%`,
+                  background: `linear-gradient(90deg, orange, white)`,
+                }}
+              >
+                {" "}
+                <div className="font-bold">{item.title}</div>
+                <div className="flex font-bold ml-auto">
+                  <div>{item.value}K</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const Lowergrid = () => {
+  const data = [
+    { title: "NY", value: 120 },
+    { title: "MA", value: 80 },
+    { title: "NH", value: 70 },
+    { title: "OR", value: 50 },
+    // Add more data as needed
+  ];
+
+  const dataArray = [
+    { title: "Fruit2Go" },
+    { title: "Marshall's MKT" },
+    { title: "CCNT" },
+    { title: "Joana Mini-market" },
+    { title: "Little Brazil Vegan" },
+    { title: "Target" },
+    { title: "Organic Place" },
+    { title: "Morello's" },
+  ];
+
   return (
     <div class="grid grid-cols-2 md:grid-cols-3 gap-10 pt-2 justify-between">
       {/* 1st box */}
-      <div class="h-[250px] py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
+      <div class=" py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
         <h2 class="font-semibold text-xl py-4">Chart</h2>
         <div class="flex flex-row sm:flex-row overflow-hidden">
           <p class="flex items-center text-black text-base sm:mr-20 mb-4 sm:mb-0">
@@ -60,40 +125,22 @@ const Lowergrid = () => {
 
       {/* 2nd box start */}
 
-      <div class="h-[250px] py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
+      <div class=" py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
         <h2 class="font-semibold text-xl py-4">Top states</h2>
-        <div class="flex flex-row sm:flex-row overflow-hidden">
-          <p class="flex items-center text-black text-3xl font-bold sm:mr-20 mb-4 sm:mb-0">
-            4%
-          </p>
-        </div>
-
-        <div class="flex flex-col">
-          <p>You closed 96 out of 100 deals</p>
-        </div>
-
-        <a href="#" class="text-[#A94438] mt-20 flex items-center text-base">
-          All deals
-          <FaArrowRight />
-        </a>
+        <BarGraph data={data} />
       </div>
 
       {/* <!-- 2nd box end --> */}
 
       {/* <!-- 3rd box start --> */}
 
-      <div className="h-[250px] py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
-        <h2 className="font-semibold text-xl py-4">Quarter goal</h2>
-        <div className="flex items-center justify-center font-bold text-3xl">
-         
+      <div className="py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
+        <h2 className="font-semibold text-xl py-4">New Deals</h2>
+        <div className="flex items-center justify-center font-bold text-3xl"></div>
+
+        <div>
+          <DataList data={dataArray} />
         </div>
-        <a
-          href="#"
-          className="text-[#A94438] mt-8 flex items-center justify-center text-base"
-        >
-          All goals
-          <FaArrowRight className="ml-2" />
-        </a>
       </div>
 
       {/* 3rd box end */}
