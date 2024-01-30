@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <div className="flex h-screen overflow-hidden bg-[#f5f7fa] m-2 rounded-xl">
       {/* Sidebar */}
-      <div className="text-black bg-red-200 overflow-y-auto fixed h-full pt-4 rounded-xl p-2">
+      <div className="text-black bg-white overflow-y-auto fixed h-full pt-4 rounded-xl p-2">
         {/* title start here */}
         <h1 className="font-bold text-2xl mb-4"> 🍊 OrangeFarm</h1>
         {/* title ends here */}
