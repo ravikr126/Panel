@@ -137,7 +137,7 @@ const Middlegrid = () => {
     {/* customer grid ends here */}
 
     <div>
-      <div className="py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
+      <div className="font-bold py-2 bg-white drop-shadow-xl p-4 border rounded-xl">
         Growth
         <Graph />
       </div>
